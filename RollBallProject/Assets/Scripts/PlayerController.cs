@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
     public float speed;
     public Text countText;
     public Text winText;
+    public AudioSource bruhSound;
     private Rigidbody rb;
     private int count; 
 
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         count = 0;
         winText.text = "";
+        bruhSound = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -38,6 +40,7 @@ public class PlayerController : MonoBehaviour {
             other.gameObject.SetActive(false);
             count = count + 1;
             SetCountText();
+            bruhSound.Play();
         }
     }
 
